@@ -1,0 +1,113 @@
+{% extends "base1.html" %}
+{% block content %}
+
+    <div class="row">
+      <div class="mx-auto col-10 col-md-8 col-lg-6">
+        <form
+          class="col-6 max-auto card p-3 shadow-lg"
+          method="POST"
+          action="/Student_create/"
+          enctype="multipart/form-data"
+           novalidate
+        >
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">Full name</label>
+            <input type="text" required name="name" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">photo</label>
+            <input type="file" name="photo" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">contact no </label>
+            <input type="text" required name="contact_no" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" required name="dob" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">resume</label>
+            <input type="file" required name="resume" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Degree</label>
+            <input type="text" required name="skills" class="form-control" />
+          </div>
+
+          <button type="submit" class="btn btn-success">Add user</button>
+        </form>
+      </div>
+    </div>
+
+
+  <!--        {{Student_create}}-->
+
+        <table class="table" border="1">
+        <thead>
+            <tr>
+                <th scope="col">No </th>
+                <th scope="col">Name </th>
+              <th scope="col">image </th>
+                <th scope="col">contact_no </th>
+                <th scope="col">dob</th>
+                <th scope="col">resume</th>
+                <th scope="col">skills</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in Student_create %}
+        <tr>
+            <th scope="row">
+                {{forloop.counter}}
+            </th>
+            <td>
+                {{i.name}}
+            </td>
+            <td>
+                <image src="/media/{{i.photo}}" style=height:100px>
+            </td>
+            <td>
+                {{i.contact_no}}
+            </td>
+            <td>
+                {{i.dob}}
+            </td>
+            <td>
+                {{i.resume}}
+            </td>
+            <td>
+                {{i.skills}}
+            </td>
+            <td>
+                <a href="/Student_update/{{i.id}}/" class="btn btn-success">Edit</a>
+
+            </td>
+          <td>
+             <a href="/Student_delete/{{i.id}}/" class="btn btn-danger">Delete</a>
+          </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Create-Employee file</h1>-->
+<!--    <form method="post" action="/Student_create/" novalidate>-->
+<!--        {% csrf_token %}-->
+<!--        {{form.as_p}}-->
+<!--        <button type="submit">Submit</button>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->

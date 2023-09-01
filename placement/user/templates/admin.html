@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Placement Management System</title>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+
+    <h2>Manage Students</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Skills</th>
+            <th>Resume</th>
+            <th>Actions</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.contact }}</td>
+            <td>{{ student.skills }}</td>
+            <td>{{ student.resume }}</td>
+            <td>
+                <a href="{% url 'edit_student' student.id %}">Edit</a> |
+                <a href="{% url 'delete_student' student.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Add New Student</h2>
+    <form method="post" enctype="multipart/form-data" action="{% url 'create_student' %}">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" name="contact" required><br>
+
+        <label for="skills">Skills:</label>
+        <textarea id="skills" name="skills" required></textarea><br>
+
+        <label for="resume">Resume:</label>
+        <input type="file" id="resume" name="resume" required><br>
+
+        <button type="submit">Create Student</button>
+    </form>
+</body>
+</html>

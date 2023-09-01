@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>No </th>
+                <th>Name </th>
+                <th>contact_no </th>
+                <th>dob</th>
+                <th>resume</th>
+                <th>skills</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in e1 %}
+        <tr>
+            <td>
+                {{forloop.counter}}
+            </td>
+            <td>
+                {{i.name}}
+            </td>
+            <td>
+                {{i.contact_no}}
+            </td>
+            <td>
+                {{i.dob}}
+            </td>
+            <td>
+                {{i.resume}}
+            </td>
+            <td>
+                {{i.skills}}
+            </td>
+            <td>
+                <a href="/Student_update/{{i.id}}/">Edit</a>
+                <a href="/Student_delete/{{i.id}}/">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <center><a href="/Student_create/">Add New Record</a></center>
+</body>
+</html>

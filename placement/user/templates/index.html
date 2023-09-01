@@ -1,0 +1,170 @@
+
+{% extends "base1.html" %}
+{% block content %}
+{% load static %}
+
+<div class="moving-image">
+<div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+    <img src="{% static 'assets/img/hero-carousel/hero-carousel-3.svg' %}" style="width: 450px; height: auto; margin: 70px 0 10px 0;" />
+</div>
+</div>
+
+
+
+
+<div class="center-container">
+   <h2>Welcome to <span>JIIT Placement Cell</span></h2>
+    <p>For Your Entire Placement Journey.</p>
+   <div class="button">
+    <a href="/login/">Login</a>
+   </div>
+</div>
+
+
+
+
+
+   <!-- End Featured Services Section -->
+   <!-- ======= Call To Action Section ======= -->
+
+             <div class="container">
+    <div class="text-container">
+        <h3>Placement <em>Portal</em></h3>
+        <p>The Placement Cell plays a crucial role in locating job
+           opportunities for under graduates and post graduates passing out from the college by
+           keeping in touch with reputed firms and industrial establishments.
+           <br>The placement cell operates round the year to facilitate contacts between companies
+           and graduates. The number of students placed through the campus interviews is
+           continuously rising.
+        </p>
+    </div>
+    <div class="img-container">
+        <img src="{% static 'assets/img/feature-7.jpg' %}" alt="" class="img-fluid">
+    </div>
+</div>
+
+
+
+<!--<div class="swiper-container">-->
+<!--    <div class="swiper-wrapper">-->
+<!--               <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-1.png' %}" alt=""></div>-->
+<!--               <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-2.png' %}" alt=""></div>-->
+<!--               <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-3.png' %}" alt=""></div>-->
+<!--               <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-4.png' %}" alt=""></div>-->
+<!--               <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-5.png' %}" alt=""></div>-->
+<!--               <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-6.png' %}" alt=""></div>-->
+<!--               <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-7.png' %}" alt=""></div>-->
+<!--               <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-8.png' %}" alt=""></div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--   &lt;!&ndash; End Clients Section &ndash;&gt;-->
+<!--   &lt;!&ndash; ======= Features Section ======= &ndash;&gt;-->
+<!--   <section id="objectives" class="features" name="objectives">-->
+<!--   <div class="container" data-aos="fade-up">-->
+<!--      <div class="tab-content">-->
+<!--         <div class="tab-pane active show" id="tab-1">-->
+<!--            <div class="row gy-4">-->
+<!--               <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">-->
+<!--                  <h3>Objectives</h3>-->
+<!--                  <p class="fst-itali">-->
+<!--                     Our Placement Portal serves various objectives:-->
+<!--                  </p>-->
+<!--                  <ul>-->
+<!--                     <li><i class="bi bi-check-circle-fill"></i> Developing the students to meet the Industries recruitment process.-->
+<!--                     </li>-->
+<!--                     <li><i class="bi bi-check-circle-fill"></i> To motivate students to develop Technical knowledge and soft skills in-->
+<!--                        terms of career planning, goal setting.-->
+<!--                     </li>-->
+<!--                     <li><i class="bi bi-check-circle-fill"></i> To produce world-class professionals who have excellent analytical skills,-->
+<!--                        communication skills, team building spirit and ability to work in cross cultural-->
+<!--                        environment.-->
+<!--                     </li>-->
+<!--                  </ul>-->
+<!--               </div>-->
+<!--               <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">-->
+<!--                  <img src="{% static 'assets/img/features-1.svg' %}" alt="" class="img-fluid">-->
+<!--               </div>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
+<!--   </div>-->
+<!--</section>-->
+<!--   &lt;!&ndash; End Tab Content &ndash;&gt;-->
+<!--   <section id="statistics" class="content-header">-->
+<!--      <div class="container">-->
+<!--         <div class="row">-->
+<!--            <div class="col-md-12 text-center latest-job margin-bottom-20">-->
+<!--               <h1>Our Statistics</h1>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="row">-->
+<!--            <div class="col-lg-3 col-xs-6">-->
+<!--               &lt;!&ndash; small box &ndash;&gt;-->
+<!--               <div class="small-box bg-aqua">-->
+<!--                  <div class="inner">-->
+
+<!--                     <h3>-->
+<!--                        <?php echo $totalno; ?>-->
+<!--                     </h3>-->
+<!--                     <p>Total Drives</p>-->
+<!--                  </div>-->
+<!--                  <div class="icon">-->
+<!--                     <i class="ion ion-ios-paper"></i>-->
+<!--                  </div>-->
+<!--               </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; ./col &ndash;&gt;-->
+<!--            <div class="col-lg-3 col-xs-6">-->
+<!--               &lt;!&ndash; small box &ndash;&gt;-->
+<!--               <div class="small-box bg-green">-->
+<!--                  <div class="inner">-->
+
+<!--                     </h3>-->
+<!--                     <p>Job Offers</p>-->
+<!--                  </div>-->
+<!--                  <div class="icon">-->
+<!--                     <i class="ion ion-briefcase"></i>-->
+<!--                  </div>-->
+<!--               </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; ./col &ndash;&gt;-->
+<!--            <div class="col-lg-3 col-xs-6">-->
+<!--               &lt;!&ndash; small box &ndash;&gt;-->
+<!--               <div class="small-box bg-yellow">-->
+<!--                  <div class="inner">-->
+
+<!--                     <h3>-->
+<!--                        <?php echo $totalno; ?>-->
+<!--                     </h3>-->
+<!--                     <p>CV'S/Resume</p>-->
+<!--                  </div>-->
+<!--                  <div class="icon">-->
+<!--                     <i class="ion ion-ios-list"></i>-->
+<!--                  </div>-->
+<!--               </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; ./col &ndash;&gt;-->
+<!--            <div class="col-lg-3 col-xs-6">-->
+<!--               &lt;!&ndash; small box &ndash;&gt;-->
+<!--               <div class="small-box bg-red">-->
+<!--                  <div class="inner">-->
+
+<!--                     <p>Daily Users</p>-->
+<!--                  </div>-->
+<!--                  <div class="icon">-->
+<!--                     <i class="ion ion-person-stalker"></i>-->
+<!--                  </div>-->
+<!--               </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; ./col &ndash;&gt;-->
+<!--         </div>-->
+<!--      </div>-->
+<!--   </section>-->
+   <!-- ======= F.A.Q Section ======= -->
+   <!-- End #main -->
+
+
+
+
+{% endblock %}

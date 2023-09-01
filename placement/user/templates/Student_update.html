@@ -1,0 +1,213 @@
+<!--<form class="col-6 max-auto card p-3 shadow-lg" method="POST" action="/Student_update/{{ student_instance.id }}/" enctype="multipart/form-data" novalidate>-->
+<!--                {% csrf_token %}-->
+<!--                <h1>Update user</h1>-->
+<!--                <div class="mb-3">-->
+<!--                    <label class="form-label">Full name</label>-->
+<!--                    <input type="text" required name="name" class="form-control" value="{{ student_data.name }}" />-->
+<!--                </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label for="id_photo">Photo:</label>-->
+<!--        <input type="file" id="id_photo" name="photo" class="form-control" />-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label for="id_contact_no">Contact No:</label>-->
+<!--        <input type="text" id="id_contact_no" name="contact_no" class="form-control" value="{{ student_data.contact_no }}" required />-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label for="id_dob">Date of Birth:</label>-->
+<!--        <input type="date" id="id_dob" name="dob" class="form-control" value="{{ student_data.dob|date:'Y-m-d' }}" required />-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label for="id_resume">Resume:</label>-->
+<!--        <input type="file" id="id_resume" name="resume" class="form-control" />-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label for="id_skills">Degree:</label>-->
+<!--        <input type="text" id="id_skills" name="skills" class="form-control" value="{{ student_data.skills }}" required />-->
+<!--    </div>-->
+
+<!--    <button type="submit" class="btn btn-success">Update user</button>-->
+<!--</form>-->
+
+
+
+
+
+
+
+<!--successfully run-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update Student</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to your custom CSS file -->
+    <link href='css/style3.css' rel="stylesheet">
+   <style>
+
+               body {background-color: powderblue;}
+
+
+    </style>
+</head>
+</head>
+<body>
+<div class="row">
+    <div class="mx-auto col-10 col-md-8 col-lg-6">
+        <form class="col-6 max-auto card p-3 shadow-lg" method="POST" action="" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            <h1> Update user</h1>
+            {{ form }}
+            <button type="submit" class="btn btn-success">Update user</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+<!--chatgpt-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--  <head>-->
+<!--    <meta charset="utf-8" />-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1" />-->
+<!--    <title>Bootstrap demo</title>-->
+<!--    <link-->
+<!--      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"-->
+<!--      rel="stylesheet"-->
+<!--      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"-->
+<!--      crossorigin="anonymous"-->
+<!--    />-->
+<!--  </head>-->
+<!--  <body>-->
+<!--    <div class="row">-->
+<!--      <div class="mx-auto col-10 col-md-8 col-lg-6">-->
+<!--        <form-->
+<!--          class="col-6 max-auto card p-3 shadow-lg"-->
+<!--          method="POST"-->
+<!--          action="/Student_create/"-->
+<!--          enctype="multipart/form-data"-->
+<!--           novalidate-->
+<!--        >-->
+<!--         {% csrf_token %}-->
+<!--          <h1> Update user</h1>-->
+<!--          <div class="mb-3">-->
+<!--            <label class="form-label">Full name</label>-->
+<!--            <input type="text" required name="name" class="form-control" value="{{ student_data.name }}" />-->
+<!--          </div>-->
+<!--          <div class="mb-3">-->
+<!--            <label class="form-label">photo</label>-->
+<!--            <input type="file" value="{{student_data.photo}}" name="photo" class="form-control" />-->
+<!--          </div>-->
+<!--          <div class="mb-3">-->
+<!--            <label class="form-label">contact no </label>-->
+<!--            <input type="text" value="{{student_data.contact_no}}" required name="contact_no" class="form-control" />-->
+<!--          </div>-->
+<!--          <div class="mb-3">-->
+<!--            <label class="form-label">Date of Birth</label>-->
+<!--            <input type="date" value="{{student_data.dob|date:'Y-m-d'}}" required name="dob" class="form-control" />-->
+<!--          </div>-->
+<!--          <div class="mb-3">-->
+<!--            <label class="form-label">resume</label>-->
+<!--            <input type="file" value="{{student_data.resume}}" required name="resume" class="form-control" />-->
+<!--          </div>-->
+<!--          <div class="mb-3">-->
+<!--            <label class="form-label">Degree</label>-->
+<!--            <input type="text" value="{{student_data.skills}}" required name="skills" class="form-control" />-->
+<!--          </div>-->
+
+<!--          <button type="submit" class="btn btn-success">Update user</button>-->
+<!--        </form>-->
+
+
+
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <script-->
+<!--      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"-->
+<!--      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"-->
+<!--      crossorigin="anonymous"-->
+<!--    ></script>-->
+<!--    <script-->
+<!--      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"-->
+<!--      integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"-->
+<!--      crossorigin="anonymous"-->
+<!--    ></script>-->
+<!--    <script-->
+<!--      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"-->
+<!--      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"-->
+<!--      crossorigin="anonymous"-->
+<!--    ></script>-->
+<!--  </body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Title</title>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;    <form method="post" action="/Student_update/{{e1.id}}/" novalidate>&ndash;&gt;-->
+<!--&lt;!&ndash;        {% csrf_token %}&ndash;&gt;-->
+<!--&lt;!&ndash;     &lt;!&ndash;{{f.as_p}}&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label>Name</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" name="name" value="{{e1.name}}">&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <br>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label>contact_no</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" name="contact_no" value="{{e1.contact_no}}">&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <br>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label>dob</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" name="dob" value="{{e1.dob}}">&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <br>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label>resume</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" name="resume" value="{{e1.resume}}">&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <br>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label>skills</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" name="skills" value="{{e1.skills}}">&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <br>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <button type="submit">Submit</button>&ndash;&gt;-->
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
