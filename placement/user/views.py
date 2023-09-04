@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate , login , logout
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth import update_session_auth_hash
 
 
 @login_required(login_url="/login/")
@@ -23,6 +23,59 @@ def header(request):
 # Create your views here.
 def index(request):
     return render(request,'index.html')
+
+
+@login_required(login_url="/login/")
+def editprofile(request):
+    if request.method == 'POST':
+        # Handle form submission and update user's profile data here
+        # You can access user data using request.user
+
+        # Example:
+        request.user.first_name = request.POST.get('first_name')
+        request.user.last_name = request.POST.get('last_name')
+        request.user.save()
+
+        # Add more fields and save changes as needed
+        current_password = request.POST.get('current_password')
+        new_password = request.POST.get('new_password')
+        confirm_new_password = request.POST.get('confirm_new_password')
+
+        if current_password and new_password and confirm_new_password:
+            # Check if the current password is correct
+            if request.user.check_password(current_password):
+                # Check if the new password and confirm password match
+                if new_password == confirm_new_password:
+                    # Set the new password and update the session auth hash
+                    request.user.set_password(new_password)
+                    update_session_auth_hash(request, request.user)  # Important for session security
+                else:
+                    messages.error(request, 'New passwords do not match.')
+            else:
+                messages.error(request, 'Current password is incorrect.')
+        else:
+            messages.error(request, 'Please fill in all password fields.')
+
+        request.user.save()  # Save user profile changes
+
+        messages.success(request, 'Profile updated successfully.')
+        return redirect('/editprofile/')  # Redirect to the profile page or any other page
+
+
+
+    return render(request,'editprofile.html')
+
+
+@login_required(login_url="/login/")
+def deleteprofile(request):
+    if request.method == 'POST':
+        # Handle form submission and delete the user's profile here
+        user = request.user
+        user.delete()
+        messages.success(request, 'Your profile has been deleted.')
+        return redirect('/index/')  # Redirect to the home page or any other page after deletion
+    return render(request, 'deleteprofile.html')
+
 
 @login_required(login_url="/login/")
 def contact(request):
@@ -186,7 +239,7 @@ def login_page(request):
             return redirect('/login/')
         else:
             login(request, user)
-            return redirect('/Student_create/')
+            return redirect('/index/')
 
     return render(request, 'login.html')
 
@@ -215,7 +268,7 @@ def register_page(request):
         user.set_password(password)
         user.save()
         messages.info(request, 'account created successfully')
-        return redirect('/register/')
+        return redirect('/login/')
 
     return render(request, 'register.html')
 

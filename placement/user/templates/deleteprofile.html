@@ -1,0 +1,23 @@
+<!-- delete_profile.html -->
+
+{% extends "base1.html" %}
+{% block content %}
+{% load static %}
+
+<div class="row">
+   <div class="mx-auto col-10 col-md-8 col-lg-6">
+      <form
+         class="col-6 max-auto card p-3 shadow-lg"
+         method="POST"
+         novalidate
+         >
+         {% csrf_token %}
+         <h2>Delete Profile</h2>
+         <hr>
+         <p>Are you sure you want to delete your profile?</p>
+         <button type="submit" class="btn btn-danger">Delete</button>
+         <a href="/index/" class="btn btn-secondary">Cancel</a>
+      </form>
+   </div>
+</div>
+{% endblock %}

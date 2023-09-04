@@ -33,7 +33,9 @@ urlpatterns = ([
     path('logout/',logout_page),
     path('header/',header),
     path('index/',index),
-                   path('contact/', contact),
+    path('contact/', contact),
+    path('editprofile/',editprofile),
+    path('deleteprofile/',deleteprofile),
     path('try/',try1),
 
     # path('user/', Create_student),
