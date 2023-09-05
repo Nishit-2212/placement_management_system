@@ -73,7 +73,7 @@ def deleteprofile(request):
         user = request.user
         user.delete()
         messages.success(request, 'Your profile has been deleted.')
-        return redirect('/index/')  # Redirect to the home page or any other page after deletion
+        return redirect('/login/')  # Redirect to the home page or any other page after deletion
     return render(request, 'deleteprofile.html')
 
 
