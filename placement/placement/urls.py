@@ -37,6 +37,8 @@ urlpatterns = ([
     path('editprofile/',editprofile),
     path('deleteprofile/',deleteprofile),
     path('try/',try1),
+    path('form/',form),
+    path('placement-portal/', include('Placement_detail.urls')),
 
     # path('user/', Create_student),
     # path('home/', home),

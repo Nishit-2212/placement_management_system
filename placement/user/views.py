@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate , login , logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth import get_user
 
 
 @login_required(login_url="/login/")
@@ -81,6 +82,10 @@ def deleteprofile(request):
 def contact(request):
     return render(request,'contact.html')
 
+@login_required(login_url="/login/")
+def form(request):
+    return render(request,'form.html')
+
 def try1(request):
     return render(request,'try.html')
 
@@ -90,6 +95,7 @@ def Student_create(request):
     if request.method == "POST":
         data = request.POST
 
+
         name = data.get('name')
         photo = request.FILES.get('photo')
         contact_no = data.get('contact_no')
@@ -97,7 +103,10 @@ def Student_create(request):
         resume = request.FILES.get('resume')
         skills = data.get('skills')
 
+
+
         Student.objects.create(
+
             name=name,
             photo=photo,
             contact_no = contact_no,
@@ -228,17 +237,25 @@ def login_page(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
+
+
         if not User.objects.filter(username = username).exists():
             messages.info(request, 'Invalid Username')
             return redirect('/login/')
 
         user = authenticate(username=username , password = password)
 
+
+
         if user is None:
             messages.error(request, 'Invalid Password')
             return redirect('/login/')
         else:
             login(request, user)
+            if username == "placement" and password == "123":
+                # Assuming you don't have a User model entry for "placement"
+                # This is a custom check for the specific username and password
+                return redirect('/placement-portal/home/')
             return redirect('/index/')
 
     return render(request, 'login.html')

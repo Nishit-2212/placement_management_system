@@ -1,0 +1,47 @@
+{% extends "base1.html" %}
+{% block content %}
+
+
+<div class="row">
+      <div class="mx-auto col-10 col-md-8 col-lg-6">
+        <form
+          class="col-6 max-auto card p-3 shadow-lg"
+          method="POST"
+          action="/Student_create/"
+          enctype="multipart/form-data"
+           novalidate
+        >
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">Full name</label>
+            <input type="text" required name="name" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">photo</label>
+            <input type="file" name="photo" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">contact no </label>
+            <input type="text" required name="contact_no" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" required name="dob" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">resume</label>
+            <input type="file" required name="resume" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Degree</label>
+            <input type="text" required name="skills" class="form-control" />
+          </div>
+
+          <button type="submit" class="btn btn-success">Add user</button>
+        </form>
+      </div>
+    </div>
+
+
+
+{% endblock %}
