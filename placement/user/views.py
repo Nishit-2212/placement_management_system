@@ -91,6 +91,12 @@ def try1(request):
 
 @login_required(login_url="/login/")
 def Student_create(request):
+    u = request.user.id
+    print(u)
+
+    if Student.objects.filter(user_id=u).exists():
+        messages.error(request, "You have already submitted the form.")
+        return redirect('/form')
 
     if request.method == "POST":
         data = request.POST
@@ -113,8 +119,9 @@ def Student_create(request):
             dob = dob,
             resume =resume,
             skills=skills,
+            user_id=u
         )
-        return redirect('/Student_create')
+        return redirect('/form')
 
     queryset = Student.objects.all()
     context = {'Student_create':queryset}

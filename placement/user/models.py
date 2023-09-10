@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 
 
 class Student(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null = True , blank = True)
+    user = models.ForeignKey(User, models.CASCADE, null = True , blank = True)
     name = models.CharField(max_length=100)
     photo = models.FileField(upload_to='profile_pic/',null=True)
     contact_no = models.CharField(max_length=100)
