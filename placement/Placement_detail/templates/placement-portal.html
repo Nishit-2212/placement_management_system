@@ -1,5 +1,68 @@
 <html>
 <body>
-    <h1>hii</h1>
+    <h1>Student Data</h1>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.name }}</li>
+            <li>{{ student.contact_no }}</li>
+            <!-- Add more fields as needed -->
+        {% endfor %}
+    </ul>
+
+
+     <table class="table" border="1">
+        <thead>
+            <tr>
+                <th scope="col">No </th>
+                <th scope="col">user </th>
+                <th scope="col">full Name </th>
+              <th scope="col">image </th>
+                <th scope="col">contact_no </th>
+                <th scope="col">dob</th>
+                <th scope="col">resume</th>
+                <th scope="col">skills</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+        <tr>
+            <th scope="row">
+                {{forloop.counter}}
+            </th>
+            <td>
+                {{ student.user }}
+            </td>
+            <td>
+                {{ student.name }}
+            </td>
+            <td>
+                <image src="/media/{{student.photo}}" style=height:100px>
+            </td>
+            <td>
+                {{student.contact_no}}
+            </td>
+            <td>
+                {{student.dob}}
+            </td>
+            <td>
+                {{student.resume}}
+            </td>
+            <td>
+                {{student.skills}}
+            </td>
+            <td>
+                <a href="/Student_update/{{student.id}}/" class="btn btn-success">Edit</a>
+
+            </td>
+          <td>
+             <a href="/Student_delete/{{student.id}}/" class="btn btn-danger">Delete</a>
+          </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
 </body>
 </html>

@@ -48,7 +48,8 @@
         <thead>
             <tr>
                 <th scope="col">No </th>
-                <th scope="col">Name </th>
+                <th scope="col">user </th>
+                <th scope="col">Full Name </th>
               <th scope="col">image </th>
                 <th scope="col">contact_no </th>
                 <th scope="col">dob</th>
@@ -63,6 +64,9 @@
                 {{forloop.counter}}
             </th>
             <td>
+                {{i.user}}
+            </td>
+            <td>
                 {{i.name}}
             </td>
             <td>
@@ -75,7 +79,7 @@
                 {{i.dob}}
             </td>
             <td>
-                {{i.resume}}
+                <a href="/media/{{i.resume}}"> {{i.resume}} </a>
             </td>
             <td>
                 {{i.skills}}
@@ -87,6 +91,10 @@
           <td>
              <a href="/Student_delete/{{i.id}}/" class="btn btn-danger">Delete</a>
           </td>
+            <td>
+                <a href="#" class="btn btn-success">Approve</a>
+
+            </td>
 
         </tr>
         {% endfor %}

@@ -25,6 +25,9 @@ def header(request):
 def index(request):
     return render(request,'index.html')
 
+def approve(request):
+    return render(request,'approve.html')
+
 
 @login_required(login_url="/login/")
 def editprofile(request):
@@ -238,6 +241,9 @@ def Student_update(request, id):
     return render(request, 'Student_update.html', context)
 
 
+
+
+
 def login_page(request):
 
     if request.method == "POST":
@@ -262,7 +268,7 @@ def login_page(request):
             if username == "placement" and password == "123":
                 # Assuming you don't have a User model entry for "placement"
                 # This is a custom check for the specific username and password
-                return redirect('/placement-portal/home/')
+                return redirect('/Student_create/')
             return redirect('/index/')
 
     return render(request, 'login.html')

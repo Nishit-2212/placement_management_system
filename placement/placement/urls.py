@@ -28,6 +28,7 @@ urlpatterns = ([
     path('Student_read/',Student_read),
     path('Student_delete/<int:id>/',Student_delete),
     path('Student_update/<int:id>/',Student_update),
+    path('approve/',approve),
     path('login/',login_page),
     path('register/',register_page),
     path('logout/',logout_page),
@@ -38,6 +39,7 @@ urlpatterns = ([
     path('deleteprofile/',deleteprofile),
     path('try/',try1),
     path('form/',form),
+    path('approve/',approve),
     path('placement-portal/', include('Placement_detail.urls')),
 
     # path('user/', Create_student),
