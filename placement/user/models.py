@@ -21,6 +21,13 @@ class Student(models.Model):
     resume = models.FileField(upload_to='resumes/')
     skills = models.TextField()
 
+
+# class Notification(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     message = models.CharField(max_length=255)
+#     is_accepted = models.BooleanField(default=False)
+#     created_at = models.DateTimeField(auto_now_add=True)
+
 # class Company(models.Model):
 #     name = models.CharField(max_length=100)
 #     industry = models.CharField(max_length=100)

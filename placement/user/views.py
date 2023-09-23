@@ -1,13 +1,47 @@
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate , login , logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth import get_user
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.auth.models import User
+from notifications.signals import notify
+
+
+
+@login_required
+def accept_request(request, user_id):
+    try:
+        user_to_accept = User.objects.get(id=user_id)
+    except User.DoesNotExist:
+        messages.error(request, 'User does not exist')
+        return redirect('/')
+
+    # Assuming you have logic to determine the user who sent the request
+    sender_user = request.user
+
+    # Send a notification to the user who sent the request
+    notify.send(
+        sender=sender_user,
+        recipient=user_to_accept,
+        verb='accepted your request.',
+    )
+
+    # You can add your specific logic for accepting the request here
+
+    messages.success(request, 'Request accepted successfully')
+    return redirect('/')
+
+
+
 
 
 @login_required(login_url="/login/")
@@ -306,3 +340,44 @@ def register_page(request):
 def logout_page(request):
     logout(request)
     return redirect('/login')
+
+
+#
+# def accept_form(request, form_id):
+#     # Get the form instance
+#     form_instance = Student.objects.get(pk=form_id)
+#
+#     # Update the form's acceptance status
+#     form_instance.is_accepted = True
+#     form_instance.save()
+#
+#     # Create a notification for the 1st user
+#     Notification.objects.create(
+#         user=form_instance.user,
+#         message=f"Your form with ID {form_instance.id} has been accepted."
+#     )
+#
+#     return JsonResponse({"message": "Form accepted successfully"})
+#
+# def reject_form(request, form_id):
+#     # Get the form instance
+#     form_instance = Student.objects.get(pk=form_id)
+#
+#     # Update the form's acceptance status
+#     form_instance.is_accepted = False
+#     form_instance.save()
+#
+#     # Create a notification for the 1st user
+#     Notification.objects.create(
+#         user=form_instance.user,
+#         message=f"Your form with ID {form_instance.id} has been rejected."
+#     )
+#
+#     return JsonResponse({"message": "Form rejected successfully"})
+#
+#
+# def show_notifications(request):
+#     # Get notifications for the current user
+#     notifications = Notification.objects.filter(user=request.user).order_by('-created_at')
+#
+#     return render(request, 'notifications.html', {'notifications': notifications})

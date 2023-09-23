@@ -42,6 +42,10 @@ urlpatterns = ([
     path('approve/',approve),
     path('placement-portal/', include('Placement_detail.urls')),
 
+    path('accept_request/<int:user_id>/', accept_request, name='accept_request'),
+
+
+
     # path('user/', Create_student),
     # path('home/', home),
 

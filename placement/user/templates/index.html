@@ -2,10 +2,17 @@
 {% extends "base1.html" %}
 {% block content %}
 {% load static %}
+{% load notifications_tags %}
 
 
 
-
+<div id="notifications">
+    <ul>
+        {% for notification in user.notifications.unread %}
+            <li>{{ notification.actor }} {{ notification.verb }}</li>
+        {% endfor %}
+    </ul>
+</div>
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
         <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
             data-aos="zoom-out">
