@@ -5,14 +5,20 @@
 {% load notifications_tags %}
 
 
-
+<center>
 <div id="notifications">
     <ul>
         {% for notification in user.notifications.unread %}
-            <li>{{ notification.actor }} {{ notification.verb }}</li>
+             <li class="notification-item notification-success">
+                <span class="notification-actor-red">{{ notification.actor }}</span>
+                <span class="notification-verb-blue {{ notification_size_class }}">{{ notification.verb }}</span>
+            </li>
         {% endfor %}
     </ul>
 </div>
+</center>
+
+
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
         <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
             data-aos="zoom-out">

@@ -95,8 +95,8 @@
                  <a href="{% url 'accept_request' i.user.id %}" class="btn btn-success accept-form" data-form-id="{{i.id}}">Accept</a>
             </td>
             <td>
-                  <a href="#" class="btn btn-danger reject-form" data-form-id="{{i.id}}">Reject</a>
-            </td>
+             <a href="/Student_delete/{{i.id}}/" class="btn btn-danger">Reject</a>
+          </td>
 
         </tr>
         {% endfor %}

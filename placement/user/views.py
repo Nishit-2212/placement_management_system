@@ -28,17 +28,21 @@ def accept_request(request, user_id):
     # Assuming you have logic to determine the user who sent the request
     sender_user = request.user
 
+    if sender_user.notifications.filter(recipient=user_to_accept, verb='accepted your Placement.').exists():
+        messages.error(request, 'You have already accepted this request')
+        return redirect('/Student_create/')
+
     # Send a notification to the user who sent the request
     notify.send(
         sender=sender_user,
         recipient=user_to_accept,
-        verb='accepted your request.',
+        verb='accepted your placement.',
     )
 
     # You can add your specific logic for accepting the request here
 
     messages.success(request, 'Request accepted successfully')
-    return redirect('/')
+    return redirect('/Student_create/')
 
 
 
@@ -300,6 +304,10 @@ def login_page(request):
         else:
             login(request, user)
             if username == "placement" and password == "123":
+                # Assuming you don't have a User model entry for "placement"
+                # This is a custom check for the specific username and password
+                return redirect('/Student_create/')
+            if username == "tcs" and password == "123":
                 # Assuming you don't have a User model entry for "placement"
                 # This is a custom check for the specific username and password
                 return redirect('/Student_create/')
